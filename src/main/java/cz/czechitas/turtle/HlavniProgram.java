@@ -92,7 +92,7 @@ public class HlavniProgram {
     }
 
 
-        //ukol - cast 2
+        //ukol - cast 2  dodelat
 
 public void zmrzlina(){
     zofka.penUp();
