@@ -22,6 +22,32 @@ public class HlavniProgram {
 
         // nakresliRovnoramennyTrojuhelnik(80,60, Color.RED);
 
+        zofka.penUp();
+        zofka.turnLeft(90);
+        zofka.move(350);
+        zofka.turnRight(90);
+        zofka.penDown();
+
+        namalujZmrzlinu(30, 100, Color.orange);
+
+        zofka.penUp();
+        zofka.turnRight(72);
+        zofka.move(60);
+        zofka.turnLeft(90);
+        zofka.penDown();
+
+        namalujSnehulaka();
+
+        zofka.penUp();
+        zofka.turnRight(180);
+        zofka.move(150);
+        zofka.turnRight(90);
+        zofka.move(200);
+        zofka.turnLeft(90);
+        zofka.penDown();
+
+        nakresliVlak();
+
 
 
 
@@ -92,24 +118,67 @@ public class HlavniProgram {
     }
 
 
-        //ukol - cast 2  dodelat
+    //ukol - cast 2  dodelat
 
-public void zmrzlina(){
-    zofka.penUp();
-    zofka.turnLeft(90);
-    zofka.move(400);
-    zofka.turnRight(180);
-    zofka.penDown();
+    public void namalujZmrzlinu(double vrcholovyUhel, double zakladnaAPrumerKruhu, Color penColor) {
+
+        zofka.setPenColor(penColor);
+
+        double delkaStran;
+        double prevodStupne;
+        prevodStupne = Math.toRadians(vrcholovyUhel);
+        delkaStran = zakladnaAPrumerKruhu / (2 * (Math.sin(prevodStupne / 2)));
+
+        zofka.turnLeft(90);
+        zofka.move(zakladnaAPrumerKruhu);
+        zofka.turnLeft(180 - ((180 - vrcholovyUhel)/2));
+        zofka.move(delkaStran);
+        zofka.turnLeft(180 - vrcholovyUhel);
+        zofka.move(delkaStran);
+
+        zofka.setPenColor(Color.PINK);
+        double obvodKruhu;
+        double delkaKroku;
+
+        obvodKruhu = 3.14 * zakladnaAPrumerKruhu;
+        delkaKroku = (obvodKruhu / 20)+2;
+
+        for (int i = 0; i < 18; i++) {
+            zofka.turnLeft(20);
+            zofka.move(delkaKroku);
+        }
 
 
-    nakresliRovnoramennyTrojuhelnik(150, 45, Color.orange);
+    }
+    public void namalujSnehulaka(){
+        nakresliKruh(5,18,30,Color.CYAN);
+        zofka.turnLeft(170);
+        nakresliKruh(10,10,51,Color.CYAN);
+        zofka.turnLeft(150);
+        nakresliKruh(5,18,30,Color.CYAN);
 
+        zofka.turnLeft(10);
+        zofka.penUp();
+        zofka.move(64);
+        zofka.turnRight(90);
+        zofka.move(93);
+        zofka.turnRight(180);
+        zofka.penDown();
 
+        nakresliKruh(13,10,37,Color.CYAN);
 
-}
+        zofka.penUp();
+        zofka.turnLeft(100);
+        zofka.move(117);
+        zofka.turnLeft(90);
+        zofka.penDown();
 
+        nakresliKruh(7,10,36,Color.CYAN);
+    }
 
-
+    public void nakresliVlak(){
+        nakresliRovnostrannyTrojuhelnik(50,Color.RED);
+    }
 
 
 }
