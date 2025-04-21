@@ -24,8 +24,6 @@ public class HlavniProgram {
 
 
 
-      //ukol - cast 2
-
         zofka.penUp();
         zofka.turnLeft(90);
         zofka.move(350);
