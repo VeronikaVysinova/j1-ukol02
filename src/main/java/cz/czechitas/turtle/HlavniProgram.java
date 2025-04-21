@@ -16,11 +16,15 @@ public class HlavniProgram {
 
         // nakresliCtverec(50,Color.MAGENTA);
 
-        //nakresliObdelnik(50,80,Color.ORANGE);
+        // nakresliObdelnik(50,80,Color.ORANGE);
 
         // nakresliKruh(20,15,25, Color.GREEN);
 
         // nakresliRovnoramennyTrojuhelnik(80,60, Color.RED);
+
+
+
+      //ukol - cast 2
 
         zofka.penUp();
         zofka.turnLeft(90);
@@ -28,7 +32,7 @@ public class HlavniProgram {
         zofka.turnRight(90);
         zofka.penDown();
 
-        namalujZmrzlinu(30, 100, Color.orange);
+        nakresliZmrzlinu(30, 100, Color.orange);
 
         zofka.penUp();
         zofka.turnRight(72);
@@ -36,19 +40,17 @@ public class HlavniProgram {
         zofka.turnLeft(90);
         zofka.penDown();
 
-        namalujSnehulaka();
+        nakresliSnehulaka();
 
         zofka.penUp();
         zofka.turnRight(180);
-        zofka.move(150);
-        zofka.turnRight(90);
         zofka.move(200);
-        zofka.turnLeft(90);
+        zofka.turnRight(90);
+        zofka.move(100);
+        zofka.turnLeft(28);
         zofka.penDown();
 
         nakresliVlak();
-
-
 
 
     }
@@ -118,9 +120,9 @@ public class HlavniProgram {
     }
 
 
-    //ukol - cast 2  dodelat
+    //ukol - cast 2
 
-    public void namalujZmrzlinu(double vrcholovyUhel, double zakladnaAPrumerKruhu, Color penColor) {
+    public void nakresliZmrzlinu(double vrcholovyUhel, double zakladnaAPrumerKruhu, Color penColor) {
 
         zofka.setPenColor(penColor);
 
@@ -131,7 +133,7 @@ public class HlavniProgram {
 
         zofka.turnLeft(90);
         zofka.move(zakladnaAPrumerKruhu);
-        zofka.turnLeft(180 - ((180 - vrcholovyUhel)/2));
+        zofka.turnLeft(180 - ((180 - vrcholovyUhel) / 2));
         zofka.move(delkaStran);
         zofka.turnLeft(180 - vrcholovyUhel);
         zofka.move(delkaStran);
@@ -141,7 +143,7 @@ public class HlavniProgram {
         double delkaKroku;
 
         obvodKruhu = 3.14 * zakladnaAPrumerKruhu;
-        delkaKroku = (obvodKruhu / 20)+2;
+        delkaKroku = (obvodKruhu / 20) + 2;
 
         for (int i = 0; i < 18; i++) {
             zofka.turnLeft(20);
@@ -150,12 +152,13 @@ public class HlavniProgram {
 
 
     }
-    public void namalujSnehulaka(){
-        nakresliKruh(5,18,30,Color.CYAN);
+
+    public void nakresliSnehulaka() {
+        nakresliKruh(5, 18, 30, Color.CYAN);
         zofka.turnLeft(170);
-        nakresliKruh(10,10,51,Color.CYAN);
+        nakresliKruh(10, 10, 51, Color.CYAN);
         zofka.turnLeft(150);
-        nakresliKruh(5,18,30,Color.CYAN);
+        nakresliKruh(5, 18, 30, Color.CYAN);
 
         zofka.turnLeft(10);
         zofka.penUp();
@@ -165,7 +168,7 @@ public class HlavniProgram {
         zofka.turnRight(180);
         zofka.penDown();
 
-        nakresliKruh(13,10,37,Color.CYAN);
+        nakresliKruh(13, 10, 37, Color.CYAN);
 
         zofka.penUp();
         zofka.turnLeft(100);
@@ -173,11 +176,41 @@ public class HlavniProgram {
         zofka.turnLeft(90);
         zofka.penDown();
 
-        nakresliKruh(7,10,36,Color.CYAN);
+        nakresliKruh(7, 10, 36, Color.CYAN);
     }
 
-    public void nakresliVlak(){
-        nakresliRovnostrannyTrojuhelnik(50,Color.RED);
+    public void nakresliVlak() {
+        nakresliRovnostrannyTrojuhelnik(100, Color.PINK);
+
+        zofka.turnRight(30);
+        zofka.move(9);
+
+        nakresliObdelnik(180, 100, Color.LIGHT_GRAY);
+
+
+        zofka.penUp();
+        zofka.move(180);
+        zofka.turnRight(90);
+        zofka.move(100);
+        zofka.turnLeft(180);
+        zofka.penDown();
+
+        nakresliObdelnik(200, 120, Color.LIGHT_GRAY);
+        nakresliKruh(22, 20, 32, Color.PINK);
+
+        zofka.penUp();
+        zofka.turnLeft(10);
+        zofka.move(90);
+        zofka.penDown();
+
+        nakresliKruh(10, 18, 20, Color.PINK);
+
+        zofka.penUp();
+        zofka.move(100);
+        zofka.penDown();
+
+        nakresliKruh(10, 18, 20, Color.PINK);
+
     }
 
 
